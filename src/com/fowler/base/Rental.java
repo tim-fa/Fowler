@@ -1,3 +1,5 @@
+package com.fowler.base;
+
 class Rental {
     private Movie movie;
     private int daysRented;
