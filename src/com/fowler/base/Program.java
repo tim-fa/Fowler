@@ -9,12 +9,8 @@ import java.util.*;
  * Java console applications can not be previewed in the Compilr IDE, only applets can.
  */
 public class Program {
-    /**
-     * This is the main entry point for the application
-     */
 
-    public static void main(String args[]) {
-        String result;
+    public void initialize() {
         System.out.println("Welcome to the Movie Store");
         Movie m1 = new Movie("movie1", 1);
         Movie m2 = new Movie("movie2", 2);
@@ -24,8 +20,8 @@ public class Program {
         c1.addRental(r1);
         c1.addRental(r2);
         System.out.println("Let's get the Statement");
-        result = c1.statement();
-        System.out.println(result);
+        String statement = c1.statement();
+        System.out.println(statement);
     }
 }
 
