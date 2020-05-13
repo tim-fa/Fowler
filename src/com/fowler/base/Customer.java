@@ -46,6 +46,26 @@ class Customer {
         return result.toString();
     }
 
+    private double getTotalCharge() {
+        double charge = 0;
+        Enumeration enum_rentals = rentals.elements();
+        while (enum_rentals.hasMoreElements()) {
+            Rental rental = (Rental) enum_rentals.nextElement();
+            charge += amountFor(rental);
+        }
+        return charge;
+    }
+
+    private int getTotalFrequentRenterPoints() {
+        int points = 0;
+        Enumeration enum_rentals = rentals.elements();
+        while (enum_rentals.hasMoreElements()) {
+            Rental rental = (Rental) enum_rentals.nextElement();
+            points += rental.getFrequentRenterPoints();
+        }
+        return points;
+    }
+
     private double amountFor(Rental rental) {
         double result = 0;
         switch (rental.getMovie().getPriceCode()) {
