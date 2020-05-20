@@ -29,7 +29,7 @@ class Customer {
         while (enum_rentals.hasMoreElements()) {
             Rental rental = (Rental) enum_rentals.nextElement();
             //show figures for this rental
-            result.append("\t").append(rental.getMovie().getTitle()).append("\t").append("\t").append(rental.getRentDuration()).append("\t").append(String.valueOf(amountFor(rental))).append("\n");
+            result.append("\t").append(rental.getMovie().getTitle()).append("\t").append("\t").append(rental.getRentDuration()).append("\t").append(String.valueOf(rental.getMovie().getCharge(rental.getRentDuration()))).append("\n");
         }
         //add footer lines
         result.append("Amount owed is ").append(String.valueOf(getTotalCharge())).append("\n");
@@ -58,7 +58,7 @@ class Customer {
     }
 
     private double getCharge(Rental rental) {
-        return this.price.getCharge(daysRented);
+        return rental.getMovie().getCharge(rental.getRentDuration());
     }
 
 }
