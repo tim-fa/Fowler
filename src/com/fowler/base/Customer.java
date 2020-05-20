@@ -42,7 +42,7 @@ class Customer {
         Enumeration enum_rentals = rentals.elements();
         while (enum_rentals.hasMoreElements()) {
             Rental rental = (Rental) enum_rentals.nextElement();
-            charge += amountFor(rental);
+            charge += getCHarge(rental);
         }
         return charge;
     }
@@ -57,7 +57,7 @@ class Customer {
         return points;
     }
 
-    private double amountFor(Rental rental) {
+    private double getCharge(Rental rental) {
         double result = 0;
         switch (rental.getMovie().getPriceCode()) {
             case Movie.REGULAR -> {
