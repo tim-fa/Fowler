@@ -42,7 +42,7 @@ class Customer {
         Enumeration enum_rentals = rentals.elements();
         while (enum_rentals.hasMoreElements()) {
             Rental rental = (Rental) enum_rentals.nextElement();
-            charge += getCHarge(rental);
+            charge += getCharge(rental);
         }
         return charge;
     }
@@ -58,21 +58,7 @@ class Customer {
     }
 
     private double getCharge(Rental rental) {
-        double result = 0;
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie.REGULAR -> {
-                result += 2;
-                if (rental.getRentDuration() > 2)
-                    result += (rental.getRentDuration() - 2) * 1.5;
-            }
-            case Movie.NEW_RELEASE -> result += rental.getRentDuration() * 3;
-            case Movie.CHILDREN -> {
-                result += 1.5;
-                if (rental.getRentDuration() > 3)
-                    result += (rental.getRentDuration() - 3) * 1.5;
-            }
-        }
-        return result;
+        return this.price.getCharge(daysRented);
     }
 
 }
